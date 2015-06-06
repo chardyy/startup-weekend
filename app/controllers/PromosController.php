@@ -1,6 +1,6 @@
 <?php
 
-class UsersController extends \BaseController {
+class PromosController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -10,9 +10,9 @@ class UsersController extends \BaseController {
 	 */
 	public function index()
 	{
-		$user = User::all();
+		$promo = Promo::all();
 
-		return Response::json($user);
+		return Response::json($promo);
 	}
 
 	/**
@@ -23,9 +23,9 @@ class UsersController extends \BaseController {
 	 */
 	public function create()
 	{
-		$user = \Input::all();
+		$promo = \Input::all();
 
-		return Response::json($user);
+		return Response::json($promo);
 	}
 
 	/**

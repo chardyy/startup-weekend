@@ -14,4 +14,5 @@
 Route::group(['prefix' => 'api'], function(){
 
 	Route::resource('users', 'UsersController');
+	Route::resource('promos', 'PromosController');
 });

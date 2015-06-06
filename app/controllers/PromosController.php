@@ -1,37 +1,34 @@
 <?php
 
-class UsersController extends \BaseController {
+class PromosController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
-	 * GET /users
+	 * GET /promos
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-		$users = User::all();
+		$promos = Promo::all();
 
-		return Response::json($users);
+		return Response::json($promos);
 	}
 
 	/**
 	 * Show the form for creating a new resource.
-	 * GET /users/create
+	 * GET /promos/create
 	 *
 	 * @return Response
 	 */
 	public function create()
 	{
-		$user = User::create([
-					Input::all()
-			]);
-		return Response::json($user);
+		//
 	}
 
 	/**
 	 * Store a newly created resource in storage.
-	 * POST /users
+	 * POST /promos
 	 *
 	 * @return Response
 	 */
@@ -42,7 +39,7 @@ class UsersController extends \BaseController {
 
 	/**
 	 * Display the specified resource.
-	 * GET /users/{id}
+	 * GET /promos/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -54,7 +51,7 @@ class UsersController extends \BaseController {
 
 	/**
 	 * Show the form for editing the specified resource.
-	 * GET /users/{id}/edit
+	 * GET /promos/{id}/edit
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -66,7 +63,7 @@ class UsersController extends \BaseController {
 
 	/**
 	 * Update the specified resource in storage.
-	 * PUT /users/{id}
+	 * PUT /promos/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -78,7 +75,7 @@ class UsersController extends \BaseController {
 
 	/**
 	 * Remove the specified resource from storage.
-	 * DELETE /users/{id}
+	 * DELETE /promos/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response

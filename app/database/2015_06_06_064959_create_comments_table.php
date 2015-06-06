@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePromosTable extends Migration {
+class CreateCommentsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,20 +12,16 @@ class CreatePromosTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('promos', function(Blueprint $table)
+		Schema::create('comments', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('name');
-			$table->string('details');
-			$table->binary('image');
-			$table->integer('category_id')->unsigned();
+			$table->string('body');
 			$table->integer('user_id')->unsigned();
 			$table->timestamps();
 		});
 
-		Schema::table('promos', function($table){
+		Schema::table('comments', function($table){
 			$table->foreign('user_id')->references('id')->on('users');
-			$table->foreign('category_id')->references('id')->on('categories');
 		});
 	}
 
@@ -36,7 +32,7 @@ class CreatePromosTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('promos');
+		Schema::drop('comments');
 	}
 
 }

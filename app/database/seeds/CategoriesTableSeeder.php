@@ -8,16 +8,13 @@ class CategoriesTableSeeder extends Seeder {
 	public function run()
 	{
 		$faker = Faker::create();
-		$userIds = User::lists('id');
 
-		$category_name = ['Events', 'Product', 'Services'];
+		$category_name = ['Event', 'Product', 'Service'];
 
-		foreach(range(1, 10) as $index)
+		foreach(range(1, 3) as $index)
 		{
 			Category::create([
-				'name' => $category_name[ rand(0, 2) ],
-				'user_id' => $faker->randomElement($userIds),
-				'created_at' => $faker->dateTime()
+				'name' => $category_name[ rand(0, 2) ]
 			]);
 		}
 	}

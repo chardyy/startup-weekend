@@ -16,13 +16,8 @@ class CreateCategoriesTable extends Migration {
 		{
 			$table->increments('id');
             $table->string('name');
-            $table->integer('user_id')->unsigned();
 			$table->timestamps();
 		});
-
-        Schema::table('categories', function($table){
-            $table->foreign('user_id')->references('id')->on('users');
-        });
 	}
 
 	/**

@@ -4,7 +4,7 @@ var run = require('gulp-run');
 var notify = require('gulp-notify');
 
 gulp.task('test', function(){
-	gulp.src('spec/**/*.php')
+	gulp.src('app/database/migrations/**/*.php')
 		.pipe(phpspec('', { notify: true }))
 		.on('error', notify.onError({
 			title: 'Crap',
@@ -18,7 +18,7 @@ gulp.task('test', function(){
 });
 
 gulp.task('watch', function(){
-	gulp.watch(['spec/**/*.php', 'src/**/*.php'], ['test']);
+	gulp.watch(['app/database/migrations/**/*.php', 'app/database/seeds/**/*.php'], ['test']);
 });
 
 

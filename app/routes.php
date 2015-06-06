@@ -11,6 +11,8 @@
 |
 */
 
+include('routes/api/post');
+
 Route::get('/', function()
 {
 	return View::make('hello');

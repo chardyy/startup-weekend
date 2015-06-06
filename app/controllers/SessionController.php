@@ -7,5 +7,6 @@ class SessionController extends BaseController
 	{
 		
 	}
+
 }
 ?>

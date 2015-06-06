@@ -9,21 +9,18 @@ class DatabaseSeeder extends Seeder {
 	 */
 
 	protected $tables = [
-		'users', 'promo_codes', 'promos', 'categories'
+		'users', 'promo_codes', 'promos', 'categories', 'comments'
 	];
 
 	//single call for faking class.
-
-	protected $seeders = [
-		'UsersTableSeeder',
-		
-	];
 
 	public function run()
 	{
 		Eloquent::unguard();
 
-		$this->call('UsersTableSeeder');
+			$this->call('UsersTableSeeder');
+			$this->call('CategoriesTableSeeder');
+			
 	}
 
 }

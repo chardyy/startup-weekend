@@ -11,9 +11,8 @@
 |
 */
 
-include('routes/api/post');
+include('routes/api/promo');
 
-Route::get('/', function()
-{
-	return View::make('hello');
+Route::group(['prefix' => 'api'], function(){
+	Route::resource('users', 'UsersController');
 });

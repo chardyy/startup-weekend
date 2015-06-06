@@ -5,11 +5,7 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"phpspec/phpspec": "~2.2",
-		"laracasts/commander": "~1.0",
-		"laracasts/validation": "1.1.*",
-		"laracasts/flash": "~1.0",
-		"laracasts/presenter": "0.1.*"
+		"phpspec/phpspec": "~2.2"
 	},
 	"require-dev": {
 		"way/generators": "~2.0",
@@ -24,10 +20,7 @@
 			"app/database/migrations",
 			"app/database/seeds",
 			"app/tests/TestCase.php"
-		],
-		"psr-4": {
-			"Startup\\": "app/Startup"
-		}
+		]
 	},
 	"scripts": {
 		"post-install-cmd": [

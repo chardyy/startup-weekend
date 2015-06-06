@@ -15,4 +15,10 @@ class BaseController extends Controller {
 		}
 	}
 
+	public static function responseSuccess($data)
+	{
+		$data = ['isSuccessful' => 'true', 'data' => $data];
+		return $data;
+	}
+
 }

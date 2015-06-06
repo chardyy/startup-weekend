@@ -1,6 +1,17 @@
 <?php
 
-class UsersController extends \BaseController {
+class ApiController extends \SessionController
+{
+
+	protected static $data;
+	
+ 
+	protected $model;
+
+	public function _construct()
+	{
+
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -10,9 +21,8 @@ class UsersController extends \BaseController {
 	 */
 	public function index()
 	{
-		$user = User::all();
-
-		return Response::json($user);
+		$instance = new static;
+		return Response::json( call_user_func($instance->model . '::all',null) );
 	}
 
 	/**
@@ -34,7 +44,21 @@ class UsersController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$instance = new static;
+
+		$data = \Input::all();
+		$model = call_user_func($instance->model . '::create', $data);
+		$json_error = ['message' => 'An error occured. Data was not stored'];
+		
+		if($model->save())
+		{
+			return static::responseSuccess($model);
+		}
+		else
+		{
+
+			return Response::json($json_error);
+		}
 	}
 
 	/**
@@ -46,7 +70,20 @@ class UsersController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$instance = new static;
+
+		$model = call_user_func($instance->model . '::find', $id);
+		$json_error = ['message' => 'An error occured. Data was not found'];
+		
+		if($model)
+		{
+			return static::responseSuccess($model);
+		}
+		else
+		{
+
+			return Response::json($json_error);
+		}
 	}
 
 	/**

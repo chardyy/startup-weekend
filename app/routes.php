@@ -12,8 +12,21 @@
 */
 
 
+Route::get('/', function(){
+	return View::make('pages.index');
+});
+
+Route::get('login', function(){
+	return View::make('pages.login');
+
+
 
 Route::group(['prefix' => 'api'], function(){
 	include('routes/api/promos.php');
 	include('routes/api/users.php');
+
 });
+
+Route::post('login', ['uses' => 'LoginController@login']);
+
+

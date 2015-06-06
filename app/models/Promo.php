@@ -4,7 +4,7 @@
 class Promo extends \BaseModel {
 
 
-	protected $fillable = array('name', 'user_id');
+	protected $fillable = ['name', 'detail', 'image', 'category_id', 'user_id'];
 
 	/**
 	 * The database table used by the model.
@@ -14,3 +14,4 @@ class Promo extends \BaseModel {
 	protected $table = 'promos';
 
 }
+

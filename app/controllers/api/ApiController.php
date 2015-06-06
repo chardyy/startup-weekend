@@ -21,6 +21,7 @@ class ApiController extends \SessionController
 	 */
 	public function index()
 	{
+
 		$instance = new static;
 		return Response::json( call_user_func($instance->model . '::all',null) );
 	}
@@ -31,9 +32,15 @@ class ApiController extends \SessionController
 	 *
 	 * @return Response
 	 */
+
+	
 	public function create()
 	{
-		//
+		$user = User::create([
+					Input::all()
+			]);
+
+		return Response::json($user);
 	}
 
 	/**

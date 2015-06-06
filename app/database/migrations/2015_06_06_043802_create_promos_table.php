@@ -18,12 +18,14 @@ class CreatePromosTable extends Migration {
 			$table->string('name');
 			$table->string('details');
 			$table->binary('image');
+			$table->integer('category_id')->unsigned();
 			$table->integer('user_id')->unsigned();
 			$table->timestamps();
 		});
 
 		Schema::table('promos', function($table){
 			$table->foreign('user_id')->references('id')->on('users');
+			$table->foreign('category_id')->references('id')->on('categories');
 		});
 	}
 

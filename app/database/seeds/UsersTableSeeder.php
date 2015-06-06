@@ -12,10 +12,10 @@ class UsersTableSeeder extends Seeder {
 		foreach(range(1, 10) as $index)
 		{
 			User::create([
-				'name' => $faker->name . $index,
+				'name' => $faker->name,
 				'username' => $faker->word,
 				'email' => $faker->email,
-				'password'
+				'password' => Hash::make('secret')
 			]);
 		}
 	}

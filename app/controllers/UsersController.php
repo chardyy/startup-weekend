@@ -21,11 +21,14 @@ class UsersController extends \BaseController {
 	 *
 	 * @return Response
 	 */
+
+	
 	public function create()
 	{
 		$user = User::create([
 					Input::all()
 			]);
+
 		return Response::json($user);
 	}
 

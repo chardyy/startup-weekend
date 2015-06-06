@@ -11,8 +11,16 @@
 |
 */
 
-Route::group(['prefix' => 'api'], function(){
-
-	Route::resource('users', 'UsersController');
-	Route::resource('promos', 'PromosController');
+Route::get('/', function(){
+	return View::make('pages.index');
 });
+
+Route::get('login', function(){
+	return View::make('pages.login');
+});
+
+Route::post('login', ['uses' => 'LoginController@login']);
+
+Route::get('api/users', 'UsersController@index');
+Route::get('api/promos', 'PromosController@index');
+

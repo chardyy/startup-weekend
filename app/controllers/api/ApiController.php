@@ -45,10 +45,10 @@ class ApiController extends \SessionController
 	public function store()
 	{
 		$instance = new static;
-		
+
 		$data = \Input::all();
 		$model = call_user_func($instance->model . '::create', $data);
-		$json_error = $model;
+		$json_error = ['message' => 'An error occured. Data was not stored'];
 		
 		if($model->save())
 		{

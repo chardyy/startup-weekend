@@ -20,12 +20,12 @@ class PromoRedeemController extends ApiController {
 			$promo_redeem = array('redeem_code' => $redeem_code);
 		}
 
-		$model = Promo::create($promo);
+		$model = PromoRedeem::create($promo);
 
-		if($model->isSaved)
+		if($model->save())
 		{
-			$model_redeem = Promo::create($promo_redeem);
-			if($model_redeem->isSaved)
+			$model_redeem = RedeemCode::create($promo_redeem);
+			if($model_redeem->save)
 			{
 				return static::responseSuccess($model);
 			}

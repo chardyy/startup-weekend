@@ -21,6 +21,7 @@ class CreatePromoRedeemTable extends Migration {
 		});
 
 		Schema::table('promo_redeem', function($table){
+			$table->foreign('promo_id')->references('id')->on('promos');
 			$table->foreign('user_id')->references('id')->on('users');
 		});
 	}

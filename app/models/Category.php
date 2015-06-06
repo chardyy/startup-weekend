@@ -1,7 +1,7 @@
 <?php
 
-class Category extends \Eloquent {
-	protected $fillable = ['name', 'user_id'];
+class Category extends \BaseModel {
+	protected $fillable = array('name', 'user_id');
 
 	protected $table = 'categories';
 }

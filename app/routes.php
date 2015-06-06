@@ -11,7 +11,9 @@
 |
 */
 
-Route::group(['prefix' => 'api'], function(){
 
-	Route::resource('users', 'UsersController');
+
+Route::group(['prefix' => 'api'], function(){
+	include('routes/api/promos.php');
+	include('routes/api/users.php');
 });

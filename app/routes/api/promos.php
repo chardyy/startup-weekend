@@ -9,4 +9,4 @@
 	});
 
 	Route::resource('promos', 'PromosController',['only' => 'index']);
-	Route::resource('promo', 'PromosController',['only' => ['create','show','update','destroy','edit']]);
+	Route::resource('promo', 'PromosController',['only' => ['create','store','show','update','destroy','edit']]);

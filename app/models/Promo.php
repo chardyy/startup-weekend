@@ -1,13 +1,10 @@
 <?php
 
-use Illuminate\Auth\UserTrait;
-use Illuminate\Auth\UserInterface;
-use Illuminate\Auth\Reminders\RemindableTrait;
-use Illuminate\Auth\Reminders\RemindableInterface;
 
-class Promo extends Eloquent implements UserInterface, RemindableInterface {
+class Promo extends \BaseModel {
 
-	use UserTrait, RemindableTrait;
+
+	protected $fillable = array('name', 'user_id');
 
 	/**
 	 * The database table used by the model.

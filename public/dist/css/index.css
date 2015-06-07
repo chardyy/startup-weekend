@@ -3,7 +3,8 @@ html{
 	width: 100%;
 	margin: 0;
 	padding: 0;
-	font-family: 
+	overflow-x: hidden;
+	background: #f6f6f6;
 }
 
 body{
@@ -28,24 +29,24 @@ nav{
 }
 
 #promotion-categories{
-	border-style: none;
-	background: #fd4d4d;
-	color: #fff;
+	border: 1px solid #ccc;
+	background: #f6f6f6;
+	color: #363635;
 	border-radius: 5px;
 	padding: 10px;
 }
 
 #promotion-categories option{
 	border-style: none;
-	background: #fd4d4d;
+	background: #fff;
 	border-radius: 5px;	
-	color: #fff;
+	color: #fd4d4d;
 }
 
 #menu{
 	background-color: #fff;
-	color: #fd4d4d;
-	border: 1px solid #fd4d4d;
+	color: #363635;
+	border: 1px solid #ccc;
 }
 
 #menu:hover{
@@ -79,20 +80,27 @@ nav{
 	height: 100%;
 	width: 100%;
 	padding-top: 100px;
-	background: #fff;
+	background: #f6f6f6;
+}
+
+#sides{
+	width: 100%;	
 }
 
 #promotion-cards{
+	background: #fff;
 	padding: 10px;
 	margin: 10px;
-	width: 40%;
-	height: 30%;
+	width: 80%;
+	border-top: 5px solid #fd4d4d;
+	border-radius: 5px;
 	box-shadow: 0px 1px 2px #ccc;
 }
 
 #promotion-img .img-responsive{
 	margin: 0 auto;
 	padding: 5px;
+
 }
 
 #promotion-buttons div{
@@ -106,6 +114,58 @@ nav{
 
 #promotion-buttons div a:hover{
 	color: #fd4d4d;
+}
+
+
+#call-to-action-promotion{
+	position: fixed;
+	margin-top: 10px;
+	padding: 15px;
+	width: 28%;
+	border-radius: 5px;
+	background: #fff;
+	box-shadow: 0px 1px 2px #ccc;
+}
+
+#call-to-action-promotion button{
+	width: 100%;
+	color: #fff;
+	background: #fd4d4d;
+}
+
+#sidebar-categories{
+	position: fixed;
+	padding-top: 10px;
+	width: 30% !important;
+	color: #2c3e50;
+	margin-top: 83px;
+	
+}
+
+.todo-search{
+	background: #fd4d4d;
+	color: #fff;
+}
+
+#sidebar-search{
+	background: #fff;
+	color: #2c3e50;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+
+#sidebar-categories .todo{
+	box-shadow: 0px 1px 2px #ccc;
+}
+
+.todo ul li{
+	background: #fff;
+}
+
+.todo ul li h4{
+	color: #2c3e50;
+
 }
 
 

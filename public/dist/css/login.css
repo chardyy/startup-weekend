@@ -1,16 +1,19 @@
 html{
 	height: 100%;
 	width: 100%;
+	background: #f6f6f6;
 }
 
 body{
 	height: 100%;
 	width: 100%;
+	background: #f6f6f6;
 }
 
 #login-box{
-	margin-top: 20px;
+	margin-top: 100px;
 	padding: 5px;
+	background: #fff;
 	border-radius: 8px;
 	border-top: 8px solid #fd4d4d;
 	box-shadow: 0px 1px 2px #ccc;

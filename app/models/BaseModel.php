@@ -11,14 +11,14 @@ class BaseModel extends Eloquent implements UserInterface, RemindableInterface
 	public function save(array $options = array())
 	{
 		$this->hashAttributes();
-		parent::save($options);
+		return parent::save($options);
 	}
 
 	public function hashAttributes()
 	{
 		foreach($this->hashableAttributes as $value)
 		{
-			$this->{$value} = Hash::make($this->{$value});
+			$this->{$value} = sha1(md5($this->{$value}));
 		}
 	}
 

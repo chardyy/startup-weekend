@@ -17,8 +17,12 @@ class BaseController extends Controller {
 
 	public static function responseSuccess($data)
 	{
-		$data = ['isSuccessful' => 'true', 'data' => $data];
-		return $data;
+		$a_data = new ArrayObject();
+		foreach($data as $obj)
+		{
+			$a_data->append($obj);
+		}
+		return ['isSuccessful' => 'true', 'data' => $a_data];
 	}
 
 }

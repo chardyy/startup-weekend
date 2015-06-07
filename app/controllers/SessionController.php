@@ -3,7 +3,7 @@
 
 class SessionController extends BaseController
 {
-	public function _construct()
+	public function __construct()
 	{
 		
 	}

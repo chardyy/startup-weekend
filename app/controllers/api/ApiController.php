@@ -23,7 +23,8 @@ class ApiController extends \SessionController
 	{
 
 		$instance = new static;
-		return Response::json( call_user_func($instance->model . '::all',null) );
+		$obj = call_user_func($instance->model . '::all',null);
+		return static::responseSuccess( $obj );
 	}
 
 	/**
@@ -114,7 +115,21 @@ class ApiController extends \SessionController
 	 */
 	public function update($id)
 	{
-		//
+		$instance = new static;
+
+		$data = \Input::all();
+		$model = call_user_func($instance->model . '::find', $id);
+		$json_error = ['message' => 'An error occured. Data cannot be deleted'];
+		
+		if($model)
+		{	
+			$model->save();
+		}
+		else
+		{
+
+			return Response::json($json_error);
+		}
 	}
 
 	/**
@@ -126,7 +141,20 @@ class ApiController extends \SessionController
 	 */
 	public function destroy($id)
 	{
-		//
+		$instance = new static;
+
+		$model = call_user_func($instance->model . '::find', $id);
+		$json_error = ['message' => 'An error occured. Data cannot be deleted'];
+		
+		if($model)
+		{
+			$model->delete();
+		}
+		else
+		{
+
+			return Response::json($json_error);
+		}
 	}
 
 }

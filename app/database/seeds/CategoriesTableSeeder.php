@@ -11,10 +11,10 @@ class CategoriesTableSeeder extends Seeder {
 
 		$category_name = ['Event', 'Product', 'Service'];
 
-		foreach(range(1, 3) as $index)
+		foreach($category_name as $index)
 		{
 			Category::create([
-				'name' => $category_name[ rand(0, 2) ]
+				'name' => $index
 			]);
 		}
 	}

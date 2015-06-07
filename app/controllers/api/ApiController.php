@@ -23,7 +23,8 @@ class ApiController extends \SessionController
 	{
 
 		$instance = new static;
-		return Response::json( call_user_func($instance->model . '::all',null) );
+		$obj = call_user_func($instance->model . '::all',null);
+		return static::responseSuccess( $obj );
 	}
 
 	/**

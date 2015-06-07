@@ -13,18 +13,19 @@
           </div>
           <div id="login-container">
             <div id="login">
-              <form id="login-form" class="form-horizontal" action='' method="POST">
+              {{ Form::open(['route' => 'login_path']) }}
                 <fieldset>
                   <div class="form-group has-feedback">
-                    <input type="text" id="username" name="username" placeholder="username" class="form-control">
+                    {{ Form::text('username', null, ['id' => 'username', 'class' => 'form-control', 'placeholder' => 'Username']) }}
                   </div>
                   <div class="form-group has-feedback">
-                    <input type="password" id="password" name="password" placeholder="password" class="form-control">
+                    {{ Form::password('password', ['id' => 'password', 'class' => 'form-control', 'placeholder' => 'Password']) }}
                   </div>
-                  <button class="btn btn-success">Log In</button>
+                  {{ Form::button('Log In',array('type' => 'submit','class' => 'btn btn-success')) }}
+                  
                 </fieldset>
-              </form>
-              <hr>
+              {{ Form::close() }}
+                <hr>
               <center><a>Don't have an account?</a></center>
             </div>
           </div>

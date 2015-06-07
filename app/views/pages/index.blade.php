@@ -5,8 +5,34 @@
      
      <div id="page-top" class="container-fluid">
         <div style="padding-left: 100px;" class="col-sm-8">
+
+        <!-- query -->
+        @foreach($promos as $promo)
+        <div class="row">
+            <div id="promotion-cards" class="col-xs-12 col-sm-8">
+                <a href="details">{{ HTML::image($promo->image, '', ['width' => 'promotion-img img-responsive img-center']) }}</a>
+                <strong>{{ $promo->name }}</strong>
+                <p>{{ $promo->details }}</p>
+                <div id="promotion-buttons" class="col-sm-12">
+                   <div class="col-sm-4">
+                       <a href="#"><span class="fui-check"></span>
+                       avail</a>
+                    </div>
+                    <div class="col-sm-4">
+                      <a href="#"><span class="fui-new"></span>
+                      comments</a>
+                    </div>
+                    <div class="col-sm-4">
+                      <a href="#"><span class="fui-plus"></span>follow</a>
+                    </div>
+                </div> 
+            </div>
+            <div class="col-sm-4"></div>
+          </div>
+          @endforeach
+        <!-- end query -->
+
           <div class="row">
-            
             <div id="promotion-cards" class="col-xs-12 col-sm-8">
                 <a href="details"><img class="promotion-img img-responsive img-center" src="img/frappe.jpg"></a>
                 <strong>Starbucks Frappucino</strong>

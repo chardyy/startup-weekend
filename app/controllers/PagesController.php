@@ -1,21 +1,31 @@
 <?php
 
-class PromosController extends \BaseController {
+class PagesController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
-	 * GET /promos
+	 * GET /pages
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-		return View::make('pages.create-promotion');
+		$promos = DB::table('promos')->where('id',14)->get();
+
+		return View::make('pages.index')
+					 ->with('promos', $promos);
+	}
+
+	public function details(){
+		$promos = DB::table('promos')->where('id',14)->get();
+
+		return View::make('pages.details')
+					 ->with('promos', $promos);
 	}
 
 	/**
 	 * Show the form for creating a new resource.
-	 * GET /promos/create
+	 * GET /pages/create
 	 *
 	 * @return Response
 	 */
@@ -26,35 +36,18 @@ class PromosController extends \BaseController {
 
 	/**
 	 * Store a newly created resource in storage.
-	 * POST /promos
+	 * POST /pages
 	 *
 	 * @return Response
 	 */
 	public function store()
 	{
-		$category_id = Input::get('category');
-		$user_id = Input::get('user');
-
-		$promo = new Promo;
-		$promo->name = Input::get('promo');
-		$promo->details = Input::get('description');
-
-		//for file
-		$image = Input::file('image');
-		$filename = time()."-".$image->getClientOriginalName();
-		$path = public_path('img/products/'.$filename);
-		Image::make($image->getRealPath())->resize(468, 249)->save($path);
-		$promo->image = 'img/products/'.$filename;
-		$promo->category_id = $category_id;
-		$promo->user_id = $user_id;
-		$promo->save();
-
-		return Redirect::to('/')->with('message', 'Product Created');
+		//
 	}
 
 	/**
 	 * Display the specified resource.
-	 * GET /promos/{id}
+	 * GET /pages/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -66,7 +59,7 @@ class PromosController extends \BaseController {
 
 	/**
 	 * Show the form for editing the specified resource.
-	 * GET /promos/{id}/edit
+	 * GET /pages/{id}/edit
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -78,7 +71,7 @@ class PromosController extends \BaseController {
 
 	/**
 	 * Update the specified resource in storage.
-	 * PUT /promos/{id}
+	 * PUT /pages/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -90,7 +83,7 @@ class PromosController extends \BaseController {
 
 	/**
 	 * Remove the specified resource from storage.
-	 * DELETE /promos/{id}
+	 * DELETE /pages/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response

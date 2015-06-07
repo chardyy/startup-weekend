@@ -14,6 +14,8 @@
     <link rel="shortcut icon" href="dist/img/favicon.ico">
     <link rel="stylesheet" href="dist/css/index.css">
     <link rel="stylesheet" href="dist/css/login.css">
+    <link rel="stylesheet" href="dist/css/create-promotion.css">
+    <link rel="stylesheet" href="dist/css/details.css">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
@@ -25,20 +27,28 @@
 
        <nav class="navbar navbar-fixed-top">
         <div id="header" class="col-xs-12 col-sm-2">
-          <img class="img-responsive" src="dist/img/libre.png">
+          <a href="/"><img class="img-responsive" src="dist/img/libre.png"></a>
         </div>
 
         <div class="col-sm-2">
         </div>
         <div class="col-sm-6"></div>
 
+      @if(Auth::check())
+         <a href="logout"><button id="menu" class="btn btn-default dropdown-toggle" type="button">
+                  <span class="fui-user"></span>
+                  Logout {{ Auth::user()->username }}
+              </button></a>
+      @else
         <div id="nav-signin" class="col-sm-2">
-        <form action="/login">
-          <a href="login"><button id="menu" class="btn btn-default dropdown-toggle" type="button">
-              <span class="fui-user"></span>
-          </button></a>
-        </form>
-        </div>        
+
+            <a href="login"><button id="menu" class="btn btn-default dropdown-toggle" type="button">
+                <span class="fui-user"></span>
+            </button></a>
+         
+        </div>  
+      @endif
+
      </nav>
      
       @yield('content')
@@ -49,6 +59,5 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="dist/js/vendor/video.js"></script>
     <script src="dist/js/flat-ui.min.js"></script>
-
   </body>
 </html>

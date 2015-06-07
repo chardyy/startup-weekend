@@ -12,14 +12,24 @@
 */
 
 
-Route::get('/', function(){
-	return View::make('pages.index');
-});
+Route::get('/', 'PagesController@index');
 
-Route::get('login', function(){
-	return View::make('pages.login');
-});
-Route::post('login', ['uses' => 'LoginController@login']);
+Route::get('login', 'UsersController@index');
+
+Route::post('login', ['as' => 'login_path','uses' => 'UsersController@login']);
+
+Route::get('create-promotion', ['uses' => 'PromosController@index']);
+//for posting of promo
+
+Route::post('create-promotion', ['as' => 'promo_path', 'uses' => 'PromosController@store']);
+
+//clicking details
+
+Route::get('details', 'PagesController@details');
+
+//logout
+
+Route::get('logout', 'UsersController@logout');
 
 
 /*

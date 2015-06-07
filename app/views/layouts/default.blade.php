@@ -35,16 +35,19 @@
         <div class="col-sm-6"></div>
 
       @if(Auth::check())
+        <div class="navbar-collapse collapse">
          <a href="logout"><button id="menu" class="btn btn-default dropdown-toggle" type="button">
                   <span class="fui-user"></span>
                   Logout {{ Auth::user()->username }}
-              </button></a>
+              </button><a/>
+        </div>
       @else
         <div id="nav-signin" class="col-sm-2">
 
             <a href="login"><button id="menu" class="btn btn-default dropdown-toggle" type="button">
                 <span class="fui-user"></span>
             </button></a>
+            
          
         </div>  
       @endif

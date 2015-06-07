@@ -22,6 +22,6 @@ class UsersController extends \BaseController {
     public function logout(){
         Auth::logout();
         Session::forget('id');
-        return Redirect::to('/login')->with('message', 'Signed out');
+        return Redirect::to('/')->with('message', 'Signed out');
     }
 }

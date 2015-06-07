@@ -18,15 +18,27 @@ Route::get('/', function(){
 
 Route::get('login', function(){
 	return View::make('pages.login');
+});
+Route::post('login', ['uses' => 'LoginController@login']);
 
 
+/*
+Route::get('create-promotion', function(){
+	return View::make('pages.create-promotion');
+});
 
+Route::get('details', function(){
+	return View::make('pages.details');
+});
+Route::post('create-promotion', 'PromosController@create');
+
+
+//for the api
 Route::group(['prefix' => 'api'], function(){
 	include('routes/api/promos.php');
 	include('routes/api/users.php');
 
 });
-
-Route::post('login', ['uses' => 'LoginController@login']);
+*/
 
 

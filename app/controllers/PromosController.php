@@ -23,7 +23,7 @@ class PromosController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return 'created promo';
 	}
 
 	/**

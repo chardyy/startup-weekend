@@ -37,10 +37,13 @@ class LoginController extends \BaseController {
 
 	public function login()
 	{
-		if(Auth::attempt(array('email' => Input::get('username'), 'password' => Input::get('password')))){
-			
-			return Redirect::to('/')->with('message', 'Thanks for signing in');;
-		}
+		if(Auth::attempt(array('username' => Input::get('username'), 'password' => Input::get('password')))){
+			$username = Input::get('username');
+            $user = DB::table('users')->where('username', $username)->first();
+            Session::put('id', $user->id);
+            return Redirect::to('/')->with('message', 'Thanks for signing in');
+		}else
+			return Redirect::to('/')->with('message', 'Thanks for signing in');
 	}
 
 	/**

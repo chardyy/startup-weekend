@@ -1,7 +1,20 @@
 $(document).ready(function(){
+	get_promos($('#promos-container').attr('data-get-url'));
 
+
+	$('#sidebar-search').keyup(function(){
+		if($(this).val() != '')
+		{
+			search_by_name($('#promos-container').attr('data-get-url'), $(this).val());
+		} else {
+			get_promos($('#promos-container').attr('data-get-url'));
+		}
+	});
+})
+
+function get_promos(s_url) {
 	$.ajax({
-		url:$('#promos-container').attr('data-get-url'),
+		url: s_url,
 		dataType: 'json',
 		method: 'GET',
 		async:false,
@@ -12,7 +25,7 @@ $(document).ready(function(){
 
 	});
 
-
+	var obj_clone = [];
 	if(typeof promo_data != 'undefined')
 	{
 		for (var i in promo_data)
@@ -23,6 +36,7 @@ $(document).ready(function(){
 				element = promo_data[i][attribute];
 				if(typeof  element != 'undefined')
 				{
+
 					if(attribute == 'image')
 					{
 						$(this).find('img').attr('src', element);
@@ -34,7 +48,15 @@ $(document).ready(function(){
 				}
 			});
 			clone.removeClass('hide');
+			obj_clone.push(clone);
 			$('#promos-container').append(clone);
 		}
 	}
-})
+
+}
+
+function search_by_name(s_url, s_name )
+{
+	$('#promos-container').empty();
+	get_promos(s_url+'?name=' + s_name);
+}

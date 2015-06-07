@@ -4,6 +4,24 @@ class PromosController extends ApiController {
 
 	protected $model = 'Promo';
 
+	public function index()
+	{
+
+		$data = \Input::all();
+
+		$query = new Promo;
+
+		if(!is_null($data))
+		{
+			if(isset($data['name']) && $data['name'])
+			{
+				$query = $query->name($data['name']);
+			}
+		}
+
+
+		return static::responseSuccess( $query->get() );
+	}
 
 	public function store()
 	{

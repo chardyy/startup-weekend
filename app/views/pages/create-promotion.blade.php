@@ -16,16 +16,16 @@
             <h4>Create a promotion</h4> 
           <div id="login-container">
             <div id="login">
-              <form id="login-form" class="form-horizontal" action='/' method="POST">
+              <form id="login-form" class="form-horizontal" action="{{ route('api.promo.store')}}" method="POST">
                 <fieldset>
                   <div class="form-group has-feedback">
-                    <input type="text" id="dob" name="promo" placeholder="Name of promotion" class="form-control">
+                    <input type="text" id="dob" name="name" placeholder="Name of promotion" class="form-control">
                   </div>
                   <div class="form-group has-feedback">
-                    <textarea type="text" name="promo" placeholder="Description" class="form-control"></textarea>
+                    <textarea type="text" name="details" placeholder="Description" class="form-control"></textarea>
                   </div>
                   <div class="form-group has-feedback">
-                      <select class="form-control select" data-toggle="select">
+                      <select class="form-control select" name="category_id" data-toggle="select">
                         <option value="0">Choose Category</option>
                         <option value="1">Events</option>
                         <option value="2">Products</option>
@@ -43,7 +43,7 @@
                       </select>
                   </div>
                   <div class="form-group has-feedback">
-                    <input id="form-ftu" type="file" name="fileToUpload" id="fileToUpload">
+                    <input id="form-ftu" type="file" name="image" id="fileToUpload">
                   </div>
                   <div class="form-group has-feedback">
                       <label class="checkbox" for="checkbox4">
